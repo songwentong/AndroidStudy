@@ -1,10 +1,19 @@
 package com.example.songwentong.rpcaculator;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class ResultActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -12,9 +21,53 @@ public class ResultActivity extends AppCompatActivity {
         //加载布局
         setContentView(R.layout.activity_result);
 
+        //2.获取mainactivity传来的数据
+        Intent intent = getIntent();
+        Uri data = intent.getData();
+//        System.out.print("data:"+data);
+        Log.i("aaa","data:"+intent.getStringExtra("name"));
+
+        TextView tv_name = (TextView)findViewById(R.id.tv_name);
+        TextView tv_sex = (TextView)findViewById(R.id.tv_sex);
+        TextView tv_result = (TextView)findViewById(R.id.tv_score);
+
+        int sex = intent.getIntExtra("sex",0);
+        //4.根据name和sex显示数据
+        tv_name.setText(intent.getStringExtra("name"));
+        //显示性别
+        switch(sex){
+            case 1:
+                tv_sex.setText("男");
+                break;
+            case 2:
+                tv_sex.setText("女");
+                break;
+            case 3:
+                tv_sex.setText("其他");
+                break;
+        }
 
     }
-    public void click(View v){
 
-    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
