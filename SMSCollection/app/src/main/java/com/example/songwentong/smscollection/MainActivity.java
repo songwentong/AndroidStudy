@@ -2,6 +2,8 @@ package com.example.songwentong.smscollection;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -24,6 +26,16 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.layout,objects);
         //3.设置数据适配器
         lv.setAdapter(adapter);
+        //4.给list
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            //点击调用
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+
 
 
     }
