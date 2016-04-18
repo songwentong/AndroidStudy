@@ -34,21 +34,30 @@ public class ResultActivity extends AppCompatActivity {
         int sex = intent.getIntExtra("sex",0);
         //4.根据name和sex显示数据
         tv_name.setText(intent.getStringExtra("name"));
+        byte[] bytes;
         //显示性别
-        switch(sex){
-            case 1:
-                tv_sex.setText("男");
-                break;
-            case 2:
-                tv_sex.setText("女");
-                break;
-            case 3:
-                tv_sex.setText("其他");
-                break;
+        try {
+            switch(sex){
+                case 1:
+                    tv_sex.setText("男");
+                    bytes = name.getBytes("gbk");
+                    break;
+                case 2:
+                    tv_sex.setText("女");
+                    bytes = name.getBytes("utf-8");
+                    break;
+                case 3:
+                    tv_sex.setText("其他");
+                    bytes = name.getBytes("iso-8859-1");
+                    break;
+            }
+        }catch (Exception e){
+
         }
 
+
         //6.计算人品的结果,市面上大多数应用采取随机数的办法
-        byte[] bytes = name.getBytes();
+//        byte[] bytes = name.getBytes();
         int total = 0;
         for (byte b :bytes){
             int number = b&0xff;
