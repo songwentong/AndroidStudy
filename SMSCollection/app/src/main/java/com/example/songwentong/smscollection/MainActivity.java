@@ -15,7 +15,7 @@ import android.widget.ListView;
 * */
 public class MainActivity extends AppCompatActivity {
 
-    String objects[] = {"1","2","3","4"};
+    String objects[] = {"1111111","22222222","33333333","44444444"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
